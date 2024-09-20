@@ -1,0 +1,24 @@
+This dataset was used by Pimental et al. to estimate patient respiratory rates (RR) from PPG signals alone.
+PPG stands for photoplethysmogram; these come from pulse oximeters, the small devices that can clip onto a fingertip to measure heart rate and peripheral blood oxygen saturation (Sp02). 
+In contrast, the equipment that can directly measure patient breathing is more invasive. There is therefore value in deriving precise estimates of RR from the PPG device.
+From the article: "RESPIRATORY rate (RR) is a known antecedent of many episodes of physiological deterioration in patients [1], [2], and its accurate estimation in a non-invasive manner is therefore
+of substantial importance in many settings including mobile health and home monitoring applications."
+
+Therefore the machine learning goal is essentially as follows: Given high-frequency (125 Hz) signals of ECG and PPG, can we accurately estimate the RR(t) of the patient in a sliding window?
+
+Each patient in the sample has a ground truth RR series over the capture window thanks to physician-annotated analysis of a different signal (lung impedance) that directly captures the breathing.
+
+In competing methods RR is generally measured in a sliding window.
+Multiple components are commonly extracted from PPG time series:
+- ID peaks and troughs (normally in pairs, but may contain spurious events)
+- RIIV, respiratory-induced intensity variation, is the time series of amplitudes
+- RIAV, respiratory-induced amplitude variation, is the amplitude difference between peak and trough
+- RIFV, respiratory-induced frequency variation, is a change in the value of the instantateous HR during a respiratory cycle. Time between successive PPG pulses gives the instantaneous HR.
+
+Second-order features and features derived from frequency or wavelet transforms have also been used.
+
+Dominant frequency component of the 3 derived time series can be used to estimate the underlying RR. The authors propose using an autoregressive model of each tiem series and factoring the model, rather than simply applying a FFT to the time series, because the AR is "parsimonious in the number of peaks in the spectrum". In short it is less likely to come up with spurious frequency peaks when the signal is noisy.
+
+We probably want to compare sequential models such as LTSM and Liquid GPSM on this dataset.
+
+OOD detection could identify signals containing higher levels of noise. 
