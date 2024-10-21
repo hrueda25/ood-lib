@@ -1,7 +1,7 @@
 """
 utils.py
 ========
-Contain utility functions for data processing
+Contains utility functions for data handling
 """
 
 from scipy.io import arff
