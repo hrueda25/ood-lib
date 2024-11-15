@@ -6,6 +6,7 @@ Contains basic functions for data preprocessing
 
 import numpy as np
 from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA, SparsePCA
 
 def data_standardization(features, target=None):
     """
@@ -60,3 +61,18 @@ def mask_0_features(features):
     filtered_features = features[:, non_zero_columns]
 
     return filtered_features
+
+
+
+def PCA_transform():
+    """
+    Arguments
+    ---------
+
+    Returns
+    -------
+    """
+    transformer = SparsePCA(n_components=3, random_state=0)
+    transformer.fit(scaled_features)
+
+    return 
