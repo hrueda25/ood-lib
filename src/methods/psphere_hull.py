@@ -1,6 +1,6 @@
 
 """
-psphere_pipeline.py
+psphere_hull.py
 ========
 Contains functions related to the p-sphere hull method.
 """
@@ -11,7 +11,7 @@ import numpy as np
 from sklearn import cluster
 
 # Add the path of the submodule where PSphereHull is located
-module_path = os.path.abspath('../code/pspherehull/src')
+module_path = os.path.abspath('code/pspherehull/src')
 if module_path not in sys.path:
     sys.path.append(module_path)
 
