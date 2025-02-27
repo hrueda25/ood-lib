@@ -7,7 +7,7 @@ Implements the One-Class SVM method for OOD detection.
 import numpy as np
 from sklearn.svm import OneClassSVM
 
-def run_one_class_svm(scaled_features_train, nu=0.1, kernel='rbf', gamma='scale'):
+def run_one_class_svm(scaled_features_train, scaled_features_test, nu=0.1, kernel='rbf', gamma='scale'):
 
     """
     Trains and applies a One-Class SVM for OOD detection.
@@ -49,6 +49,6 @@ def run_one_class_svm(scaled_features_train, nu=0.1, kernel='rbf', gamma='scale'
 
     # Predict: -1 for outliers, 1 for inliers
 
-    predictions = oc_svm.predict(scaled_features_train)
+    predictions = oc_svm.predict(scaled_features_test)
 
     return predictions

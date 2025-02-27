@@ -1,0 +1,2 @@
+method,params,test_samples,test_ood,test_inliers,test_ood_ratio,runtime_seconds,dataset,dataset_path,timestamp
+psphere,"n_clusters=100,ps_vratio_filt=False",836,90,746,0.1076555023923445,10.749783515930176,abalone,data/raw/openML/abalone.arff,2025-02-27 17:20:08

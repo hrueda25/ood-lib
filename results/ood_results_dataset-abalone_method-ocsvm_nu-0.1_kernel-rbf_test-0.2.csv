@@ -1,0 +1,2 @@
+method,params,test_samples,test_ood,test_inliers,test_ood_ratio,runtime_seconds,dataset,dataset_path,timestamp
+ocsvm,"nu=0.1,kernel=rbf,gamma=scale",836,90,746,0.1076555023923445,0.29622387886047363,abalone,data/raw/openML/abalone.arff,2025-02-27 17:56:42

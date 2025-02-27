@@ -1,0 +1,17 @@
+method,params,test_samples,test_ood,test_inliers,test_ood_ratio,runtime_seconds,dataset,dataset_path,timestamp
+ocsvm,"nu=0.1,kernel=rbf,gamma=scale",836,90,746,0.1076555023923445,0.27649807929992676,abalone,data/raw/openML\abalone.arff,2025-02-27 18:08:31
+ocsvm,"nu=0.1,kernel=rbf,gamma=scale",301,36,265,0.11960132890365449,0.0576326847076416,airfoil_self_noise,data/raw/openML\airfoil_self_noise.arff,2025-02-27 18:08:36
+ocsvm,"nu=0.1,kernel=rbf,gamma=scale",4128,406,3722,0.09835271317829457,9.437032222747803,california_housing,data/raw/openML\california_housing.arff,2025-02-27 18:08:49
+ocsvm,"nu=0.1,kernel=rbf,gamma=scale",206,21,185,0.10194174757281553,0.02626633644104004,concrete_compressive_strength,data/raw/openML\concrete_compressive_strength.arff,2025-02-27 18:08:54
+ocsvm,"nu=0.1,kernel=rbf,gamma=scale",1639,151,1488,0.0921293471629042,1.570941686630249,cpu_activity,data/raw/openML\cpu_activity.arff,2025-02-27 18:09:00
+ocsvm,"nu=0.1,kernel=rbf,gamma=scale",212,23,189,0.10849056603773585,0.04876852035522461,geographical_origin_of_music,data/raw/openML\geographical_origin_of_music.arff,2025-02-27 18:09:04
+ocsvm,"nu=0.1,kernel=rbf,gamma=scale",2000,209,1791,0.1045,2.033673048019409,grid_stability,data/raw/openML\grid_stability.arff,2025-02-27 18:09:11
+ocsvm,"nu=0.1,kernel=rbf,gamma=scale",2787,282,2505,0.10118406889128095,4.338899612426758,miami_housing,data/raw/openML\miami_housing.arff,2025-02-27 18:09:18
+ocsvm,"nu=0.1,kernel=rbf,gamma=scale",2387,233,2154,0.09761206535400084,3.012030839920044,naval_propulsion_plant,data/raw/openML\naval_propulsion_plant.arff,2025-02-27 18:09:24
+ocsvm,"nu=0.1,kernel=rbf,gamma=scale",9146,931,8215,0.10179313361032145,65.0315797328949,physiochemical_protein,data/raw/openML\physiochemical_protein.arff,2025-02-27 18:10:31
+ocsvm,"nu=0.1,kernel=rbf,gamma=scale",1639,163,1476,0.09945088468578402,1.7417426109313965,pumadyn32nh,data/raw/openML\pumadyn32nh.arff,2025-02-27 18:10:38
+ocsvm,"nu=0.1,kernel=rbf,gamma=scale",214,38,176,0.17757009345794392,0.03145718574523926,solar_flare,data/raw/openML\solar_flare.arff,2025-02-27 18:10:59
+ocsvm,"nu=0.1,kernel=rbf,gamma=scale",4253,444,3809,0.10439689630848813,13.721288919448853,superconductivity,data/raw/openML\superconductivity.arff,2025-02-27 18:11:15
+ocsvm,"nu=0.1,kernel=rbf,gamma=scale",13757,1447,12310,0.1051828160209348,132.9947566986084,video_transcoding,data/raw/openML\video_transcoding.arff,2025-02-27 18:13:33
+ocsvm,"nu=0.1,kernel=rbf,gamma=scale",14400,1455,12945,0.10104166666666667,173.62392926216125,wave_energy,data/raw/openML\wave_energy.arff,2025-02-27 18:16:31
+ocsvm,"nu=0.1,kernel=rbf,gamma=scale",980,106,874,0.10816326530612246,0.5660021305084229,white_wine,data/raw/openML\white_wine.arff,2025-02-27 18:16:37

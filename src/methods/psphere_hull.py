@@ -19,7 +19,7 @@ if module_path not in sys.path:
 from PSphereHull import refine_cluster_set as rcs
 from PSphereHull import psphere_hull as psh
 
-def hull_creation(scaled_features_train, n_clusters=100, ps_vratio_filt=True):
+def hull_creation(scaled_features, n_clusters=100, ps_vratio_filt=True):
     """
     Creates the hull using the p-sphere hull method.
     
@@ -46,10 +46,10 @@ def hull_creation(scaled_features_train, n_clusters=100, ps_vratio_filt=True):
 
     # Example using KMeans
     km = cluster.KMeans(n_clusters, random_state=42)
-    km.fit(scaled_features_train)
+    km.fit(scaled_features)
 
     # Describe the p-spheres of the clusters
-    spheres_df = rcs.describe_cluster_pspheres(scaled_features_train, km.labels_, km.cluster_centers_)
+    spheres_df = rcs.describe_cluster_pspheres(scaled_features, km.labels_, km.cluster_centers_)
 
     # Filtering based on the ps_vration
     new_labels, new_centers = km.labels_, km.cluster_centers_
@@ -62,16 +62,25 @@ def hull_creation(scaled_features_train, n_clusters=100, ps_vratio_filt=True):
         for cluster_index in psv.index:
             if psv[cluster_index] >= mean_psv + std_psv: 
                 print(cluster_index, psv[cluster_index])
-                new_labels, new_centers, success = rcs.split_cluster(scaled_features_train, new_labels, new_centers, cluster_index, min_size=4, verbose=True)
-                new_labels = rcs.flag_outlier(scaled_features_train, new_labels, new_centers, cluster_index)
+                new_labels, new_centers, success = rcs.split_cluster(scaled_features, new_labels, new_centers, cluster_index, min_size=4, verbose=True)
+                new_labels = rcs.flag_outlier(scaled_features, new_labels, new_centers, cluster_index)
                 
 
     # Redefine the p-spheres with new labels and centers
-    spheres_df = rcs.describe_cluster_pspheres(scaled_features_train, new_labels, new_centers)
+    spheres_df = rcs.describe_cluster_pspheres(scaled_features, new_labels, new_centers)
 
     # Create the hull
-    hull = psh.PSphereHull(scaled_features_train, new_labels, new_centers, compute_all=False)
+    hull = psh.PSphereHull(scaled_features, new_labels, new_centers, compute_all=False)
     hull.make_local_dimensions()
     hull.make_pcylinders()
 
     return hull
+
+def hull_ood(hull, scaled_features):
+
+    point_in_hull = hull.contains(scaled_features)
+    points_inside = np.where(point_in_hull)[0]
+    points_outside = np.where(~point_in_hull)[0]
+    
+
+    return points_inside, points_outside
